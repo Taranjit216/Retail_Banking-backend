@@ -41,6 +41,14 @@ public class AccountController {
 		List<AccountDto> accounts = this.accountService.getAccountByUser(userId);
 		return new ResponseEntity<List<AccountDto>>(accounts, HttpStatus.OK);
 	}	
+	
+	// getAccountByUserId
+	//get single account by use
+//		@GetMapping("/user/{userId}/accounts")
+//		public ResponseEntity<AccountDto> getAccountsByUserId(@PathVariable Integer userId){
+//			AccountDto account = this.accountService.getAccountByUserId(userId);
+//			return new ResponseEntity<AccountDto>(account, HttpStatus.OK);
+//		}
 					
 	//get all accounts
 			@GetMapping("/accounts")

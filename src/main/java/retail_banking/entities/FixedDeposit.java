@@ -35,6 +35,10 @@ public class FixedDeposit {
 	
 	private Date updated_at;
 	
+	private Integer tenor;
+	
+	//private Date maturity_Date;
+	
 	@ManyToOne
 	//@JoinColumn(name = "account_number")
 	private Account account;

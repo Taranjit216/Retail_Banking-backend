@@ -25,6 +25,9 @@ public interface AccountService {
 	//get account
 	AccountDto getAccountById(Integer accountId);
 	
+	//get account
+	AccountDto getAccountByUserId(Integer userId);
+	
 	//get all accounts by user
 	List<AccountDto> getAccountByUser(Integer userId);
 	

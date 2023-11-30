@@ -25,4 +25,8 @@ public class FdDto {
 	
 	private Date updated_at;
 	
+	private Integer tenor;
+	
+	//private Date maturity_Date;
+	
 }

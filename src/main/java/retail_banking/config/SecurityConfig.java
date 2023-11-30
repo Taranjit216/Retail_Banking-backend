@@ -63,6 +63,8 @@ public class SecurityConfig {
                 .permitAll()
                 .requestMatchers(HttpMethod.POST)
                 .permitAll()
+                .requestMatchers(HttpMethod.PUT)
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and().exceptionHandling()

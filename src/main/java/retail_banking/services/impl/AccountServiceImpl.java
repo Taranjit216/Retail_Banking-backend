@@ -14,6 +14,7 @@ import retail_banking.entities.User;
 import retail_banking.exceptions.InvalidAmountException;
 import retail_banking.exceptions.ResourceNotFoundException;
 import retail_banking.payloads.AccountDto;
+import retail_banking.payloads.UserDto;
 import retail_banking.repositories.AccountRepo;
 import retail_banking.repositories.UserRepo;
 import retail_banking.service.AccountService;
@@ -80,6 +81,7 @@ public class AccountServiceImpl implements AccountService {
 		return this.modelMapper.map(account, AccountDto.class);
 	}
 
+	
 	@Override
 	public List<AccountDto> getAccountByUser(Integer userId) {
 
@@ -91,6 +93,7 @@ public class AccountServiceImpl implements AccountService {
 		
 		return accountDtos;
 	}
+	
 
 	@Override
 	public List<AccountDto> getAcounts() {
@@ -176,4 +179,27 @@ public class AccountServiceImpl implements AccountService {
 		return this.modelMapper.map(updateAccount2, AccountDto.class);
 	}
 
+	@Override
+	public AccountDto getAccountByUserId(Integer userId) {
+		User user = this.userRepo.findById(userId)
+				.orElseThrow( () -> new ResourceNotFoundException("User","Id", userId));
+		
+		return this.modelMapper.map(user, AccountDto.class);
+	}
+	
+
+//	@Override
+//	public AccountDto getAccountById(Integer accountId) {
+//		Account account = this.accountRepo.findById(accountId)
+//				.orElseThrow( () -> new ResourceNotFoundException("account","account id", accountId));
+//		
+//		return this.modelMapper.map(account, AccountDto.class);
+//	}
+//	public UserDto getUserById(Integer userId) {
+//
+//		User user = this.userRepo.findById(userId)
+//				.orElseThrow( () -> new ResourceNotFoundException("User","Id", userId));
+//		
+//		return this.userToDto(user);
+//	}
 }

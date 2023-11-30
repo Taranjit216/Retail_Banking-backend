@@ -43,8 +43,8 @@ public class FdServiceImpl implements FdService{
 		FD.setAccount_type("Fixed Deposit");
 		FD.setUpdated_at(new Date());
 		FD.setAccount(account);
-		FD.setInterest_Rate(4.5);	
-		FD.setMaturity_amount(maturityAmount());
+		//FD.setInterest_Rate(4.5);	
+		//FD.setMaturity_amount(maturityAmount());
 		
 		FixedDeposit newFD = this.fdRepo.save(FD);
 		
@@ -57,6 +57,8 @@ public class FdServiceImpl implements FdService{
 				.orElseThrow( () -> new ResourceNotFoundException("FixedDeposit","FD id", FdId));
 		
 		FD.setFd_amount(fdDto.getFd_amount());
+		FD.setTenor(1);
+		//FD.setMaturity_Date(null);
 		
 		FixedDeposit updateFD = this.fdRepo.save(FD);
 		
